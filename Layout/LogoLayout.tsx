@@ -1,5 +1,4 @@
 import LeftSidebar from "@/components/Custom/LeftSidebar";
-import RightSideBar from "@/components/Custom/RightSideBar";
 import React from "react";
 
 const LogoLayout = ({ children }: { children: React.ReactNode }) => {
@@ -7,8 +6,7 @@ const LogoLayout = ({ children }: { children: React.ReactNode }) => {
     <>
       <div className="flex items-start h-screen">
         <LeftSidebar />
-        <main className="flex-1 w-full">{children}</main>
-        <RightSideBar />
+        <main className="w-full ">{children}</main>
       </div>
     </>
   );
