@@ -2,6 +2,7 @@
 import { useLogoStore } from "@/Store/useLogoStore";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { CgChanel } from "react-icons/cg";
 import { ScrollArea } from "../ui/scroll-area";
 const LogoEditor = () => {
   const { letters } = useLogoStore();
@@ -15,10 +16,13 @@ const LogoEditor = () => {
             <Button>Share</Button>
           </div>
         </div>
-        <div className="aspect-video bg-black/50 rounded-lg mb-6">
+        <div className="w-full h-[300px] border border-gray-700 border-dashed rounded-lg mb-6">
           {/* Logo preview area */}
-          <div className="flex items-center justify-center ">
-            <div className="text-4xl font-bold text-white">
+          <div className="flex items-center justify-center h-full">
+            <div className="text-4xl font-bold text-white flex ">
+              <span>
+                <CgChanel className="size-11" />
+              </span>
               {letters || "CREDENCE"}
             </div>
           </div>

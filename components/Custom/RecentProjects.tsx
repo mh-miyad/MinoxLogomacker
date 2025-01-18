@@ -1,50 +1,21 @@
 "use client";
-import { useLogoStore } from "@/Store/useLogoStore";
-import { Input } from "../ui/input";
 import { ScrollArea } from "../ui/scroll-area";
+import ColorPicker from "./ColorPicker";
 
 const RecentProjects = () => {
-  const recentProjects = useLogoStore((state) => state.recentProjects);
-  const selectedColor = useLogoStore((state) => state.selectedColor);
-  const setSelectedColor = useLogoStore((state) => state.setSelectedColor);
-
-  const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedColor(e.target.value);
-  };
   return (
     <ScrollArea>
-      <div className="w-72 p-6 border-l">
+      <div className="w-[300px] p-3 border-l ">
         <div className="mb-6">
           <h3 className="text-sm font-medium mb-4">Colors</h3>
-          <div className="flex gap-2">
-            {[
-              "#FF4365",
-              "#FF8C42",
-              "#FFD93D",
-              "#4CAF50",
-              "#2196F3",
-              "#9C27B0",
-            ].map((color) => (
-              <button
-                key={color}
-                className="w-6 h-6 rounded-full"
-                style={{ backgroundColor: color }}
-                onClick={() => setSelectedColor(color)}
-              />
-            ))}
-          </div>
-          <div className="mt-4">
-            <Input
-              value={selectedColor}
-              onChange={handleColorChange}
-              className="font-mono"
-            />
+          <div className="mb-4 ">
+            <ColorPicker />
           </div>
         </div>
 
         <div>
           <h3 className="text-sm font-medium mb-4">Today</h3>
-          <div className="space-y-2">
+          {/* <div className="space-y-2">
             {recentProjects
               .filter((p) => isToday(p.timestamp))
               .map((project) => (
@@ -58,7 +29,7 @@ const RecentProjects = () => {
                   </div>
                 </div>
               ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </ScrollArea>
@@ -66,11 +37,11 @@ const RecentProjects = () => {
 };
 
 export default RecentProjects;
-function isToday(date: Date) {
-  const today = new Date();
-  return (
-    date.getDate() === today.getDate() &&
-    date.getMonth() === today.getMonth() &&
-    date.getFullYear() === today.getFullYear()
-  );
-}
+// function isToday(date: Date) {
+//   const today = new Date();
+//   return (
+//     date.getDate() === today.getDate() &&
+//     date.getMonth() === today.getMonth() &&
+//     date.getFullYear() === today.getFullYear()
+//   );
+// }
